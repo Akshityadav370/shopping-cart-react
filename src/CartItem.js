@@ -1,16 +1,16 @@
 import React from 'react';
 
 class CartItem extends React.Component {
-    constructor () {
-        super()
-        this.state = {
-            price: 999,
-            title: 'Mobile Phone',
-            qty: 1,
-            img: ''
-        }
-        // this.increaseQty = this.increaseQty.bind(this);
-    }
+    // constructor () {
+    //     super()
+    //     this.state = {
+    //         price: 999,
+    //         title: 'Mobile Phone',
+    //         qty: 1,
+    //         img: ''
+    //     }
+    //     // this.increaseQty = this.increaseQty.bind(this);
+    // }
     increaseQty = () => {
         // console.log('test', this.state);
         // this.state.qty += 1;
@@ -37,12 +37,15 @@ class CartItem extends React.Component {
             //     qy = prevState.qty - 1
             // }
             return {
-                qty: (prevState.qty === 0 ? 0 : prevState.qty - 1)
+                qty: (prevState.qty === 1 ? 1 : prevState.qty - 1)
             }
         })
     }
     render() {
-        const {price, title, qty} = this.state
+        console.log('this.props', this.props);
+        // const {price, title, qty} = this.state
+        // const {price, title, qty} = this.props
+        const {price, title, qty} = this.props.product
         return (
             <div className="cart-item">
                 <div className='left-block'>
