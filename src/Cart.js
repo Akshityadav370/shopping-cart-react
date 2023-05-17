@@ -31,6 +31,42 @@ class Cart extends React.Component {
         }
         // this.increaseQty = this.increaseQty.bind(this);
     }
+    handleIncreaseQty = (product) => {
+        console.log('Hey! please increase the qty of the product:', product)
+        const {products} = this.state;
+        const index = products.indexOf(product);
+
+        products[index].qty += 1 
+
+        this.setState({
+            products: products
+        })
+    }
+    handleDeleteProduct = (id) => {
+        const {products} = this.state;
+
+        const items = products.filter((item) => item.id !== id); // [{}]
+
+        this.setState({
+            products: items
+        })
+    }
+    handleDecreaseQty = (product) => {
+        console.log('Hey! please decrease the qty of the product:', product)
+        const {products} = this.state;
+        const index = products.indexOf(product);
+
+
+        if(products[index].qty === 1){
+            return
+        }else{
+            products[index].qty -= 1 
+        } 
+
+        this.setState({
+            products: products
+        })
+    }
     render() {
         const {products} = this.state;
         // const arr = [1, 2, 3, 4, 5]
@@ -50,6 +86,9 @@ class Cart extends React.Component {
                 <CartItem/> */}
                 {products.map((product)=>{
                     return <CartItem product={product} key={product.id}
+                                onIncreaseQty = {this.handleIncreaseQty}
+                                onDecreaseQty = {this.handleDecreaseQty}
+                                onDeleteProduct = {this.handleDeleteProduct}
                             // func={()=>console.log('sdsd')}
                             // isloggedin={false}
                             // jsx={<h1>Test</h1>}
