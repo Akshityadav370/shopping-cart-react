@@ -15,7 +15,9 @@ const styles = {
   cartIcon: {
     height: 32,
     marginRight: 20,
-    borderRadius: '90%'
+    borderRadius: '90%',
+    // marginRight: '100'
+
   },
   nav: {
     height: 70,
@@ -28,7 +30,9 @@ const styles = {
     position: 'relative'
   },
   cartCount: {
-    background: 'yellow',
+    background: 'red',
+    color: 'white',
+    opacity: '0.89',
     borderRadius: '50%',
     padding: '4px 8px',
     position: 'absolute',
